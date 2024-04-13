@@ -1,0 +1,63 @@
+{
+  "name": "e-etat-civil",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "./e-etat-civil/src",
+  "targets": {
+    "build": {
+      "executor": "@analogjs/platform:vite",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/e-etat-civil/.nitro",
+        "{workspaceRoot}/dist/e-etat-civil/ssr",
+        "{workspaceRoot}/dist/e-etat-civil/analog"
+      ],
+      "options": {
+        "main": "e-etat-civil/src/main.ts",
+        "configFile": "e-etat-civil/vite.config.ts",
+        "outputPath": "dist/e-etat-civil/client",
+        "tsConfig": "e-etat-civil/tsconfig.app.json"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@analogjs/platform:vite-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "e-etat-civil:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "e-etat-civil:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "e-etat-civil:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "e-etat-civil:build"
+      }
+    },
+    "test": {
+      "executor": "@analogjs/platform:vitest",
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
+    }
+  },
+  "tags": []
+}

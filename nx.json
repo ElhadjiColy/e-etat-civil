@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default"
+    ],
+    "sharedGlobals": []
+  },
+  "nxCloudAccessToken": "Y2FhODI5NDQtN2U2ZS00ZjRiLWIwZDMtNTJjZjlhMjNmY2IzfHJlYWQtd3JpdGU="
+}
