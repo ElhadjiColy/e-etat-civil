@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
-import { AnalogWelcomeComponent } from './analog-welcome.component';
+import { AnalogWelcomeComponent } from "./analog-welcome.component";
 
 @Component({
-  selector: 'e-etat-civil-home',
+  selector: "e-etat-civil-home",
   standalone: true,
   imports: [AnalogWelcomeComponent],
-  template: `
-     <e-etat-civil-analog-welcome/>
-  `,
+  template: ` <e-etat-civil-analog-welcome /> `,
 })
-export default class HomeComponent {
-}
+export default class HomeComponent {}
